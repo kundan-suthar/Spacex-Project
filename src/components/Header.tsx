@@ -1,7 +1,4 @@
-import {
- 
-  IconHome,
-} from "@tabler/icons-react";
+
 import {
   Anchor,
   Box,
