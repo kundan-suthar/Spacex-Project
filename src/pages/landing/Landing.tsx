@@ -3,37 +3,20 @@ import {
   Title,
   Text,
   Button,
-  Card,
-  Image,
-  Loader,
   Flex,
   Box,
   rem,
   MediaQuery,
 } from "@mantine/core";
+
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import Starlink from "../../../public/assets/imgs/starlink.png"
+
+import Starlink from "../../../public/assets/imgs/starlink.png";
 import Astro from "../../../public/assets/imgs/astro3.png";
 import classes from "../../styles/Landing.module.css";
-import { theme } from "../../theme";
-const fetchUpcomingLaunch = async () => {
-  const response = await fetch(
-    "https://api.spacexdata.com/v5/launches/upcoming"
-  );
-  const launches = await response.json();
-  console.log(launches);
-
-  return launches.length > 0 ? launches[0] : null;
-};
+import RocketList from "../../components/Rocketsection";
 
 const Landing = () => {
-  const { data: launch, isLoading } = useQuery(
-    ["upcomingLaunch"],
-    fetchUpcomingLaunch
-  );
-  // console.log(launch);
-
   return (
     <main className={classes.hero}>
       <div
@@ -54,7 +37,7 @@ const Landing = () => {
               <Title size="2.5rem" order={2} align="left" color="neutral.1">
                 TAKING HUMAN TO SPACE
               </Title>
-              <Text size="sm" mt="md" color="dimmed" align="left" lineClamp={3}>
+              <Text size="sm" mt="md" color="dimmed" align="left">
                 In 2020, SpaceX returned America's ability to fly NASA
                 astronauts to and from the International Space Station on
                 American vehicles for the first time since 2011. In addition to
@@ -151,23 +134,49 @@ const Landing = () => {
           )}
         </Flex> */}
       </Container>
-      <Container>
+      <Container size="xl" py="xl">
         <Flex direction="row" align="center" justify="space-between" gap="xl">
           <Box>
-          <img  src={Starlink} alt="satelite starlink"  width="100%" height="100%" />
+            <img
+              src={Starlink}
+              alt="satelite starlink"
+              width="100%"
+              height="100%"
+            />
           </Box>
-        <Box >
-        <Title size="2.5rem" order={2} align="left" color="neutral.1">STARLINK MISSION</Title>
-        <Text size="sm" mt="md" color="dimmed" align="left" lineClamp={3}>
-          On Friday, March 24 at 11:33 a.m. ET, Falcon 9 launched 56 Starlink
-          satellites to low-Earth orbit from Space Launch Complex 40 at Cape
-          Canaveral Space Force Station, Florida.
-        </Text>
-
-        
-        </Box>
+          <Box>
+            <Title size="2.5rem" order={2} align="left" color="neutral.1">
+              STARLINK MISSION
+            </Title>
+            <Text size="sm" mt="md" color="dimmed" align="left">
+              On Friday, March 24 at 11:33 a.m. ET, Falcon 9 launched 56
+              Starlink satellites to low-Earth orbit from Space Launch Complex
+              40 at Cape Canaveral Space Force Station, Florida.
+            </Text>
+            <Button
+              styles={(theme) => ({
+                root: {
+                  backgroundColor: "#ffffff",
+                  color: "#000",
+                  border: 0,
+                  height: rem(42),
+                  paddingLeft: rem(20),
+                  paddingRight: rem(20),
+                  marginTop: rem(42),
+                  "&:not([data-disabled])": theme.fn.hover({
+                    backgroundColor: theme.fn.darken("#000", 0.05),
+                    color: theme.fn.lighten("#fff", 0.05),
+                    outline: `2px solid ${theme.fn.lighten("#000", 0.3)}`,
+                  }),
+                },
+              })}
+            >
+              Read More
+            </Button>
+          </Box>
         </Flex>
       </Container>
+      <RocketList />
     </main>
   );
 };
