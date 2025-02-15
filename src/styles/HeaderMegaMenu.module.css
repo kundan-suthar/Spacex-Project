@@ -5,6 +5,10 @@
   padding-left: 3rem;
   padding-right: 3rem;
   border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  @media (max-width: 768px) {
+    padding-left: 1rem;
+  padding-right: 1rem;
+  }
 }
 .logo{
   height: 1.5rem;

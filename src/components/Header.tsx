@@ -3,19 +3,11 @@ import {
   Box,
   Burger,
   Button,
-  Center,
-  Collapse,
   Divider,
   Drawer,
   Group,
-  HoverCard,
   MediaQuery,
   ScrollArea,
-  SimpleGrid,
-  Text,
-  ThemeIcon,
-  UnstyledButton,
-  useMantineTheme,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import classes from "../styles/HeaderMegaMenu.module.css";
@@ -32,8 +24,6 @@ export function HeaderMegaMenu() {
   // Disclosure hooks for the Drawer and links
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
-  const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
-  const theme = useMantineTheme();
 
   return (
     <Box>
@@ -84,8 +74,7 @@ export function HeaderMegaMenu() {
               >
                 Dragon
               </Anchor>
-             
-             
+
               <SignedOut>
                 <SignInButton>
                   <Button variant="default">Log in</Button>
@@ -111,22 +100,52 @@ export function HeaderMegaMenu() {
           onClose={closeDrawer}
           size="100%"
           padding="md"
-          title="Navigation"
+          title="SpaceX"
           zIndex={1000000}
         >
           {/* Use style prop for custom heights if shorthand “h” causes issues */}
           <ScrollArea style={{ height: "calc(100vh - 80px)" }} mx="-md">
             <Divider my="sm" />
 
-            <a href="#" className={classes.link}>
-              Home
-            </a>
-            <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="#" className={classes.link}>
-              Academy
-            </a>
+            <Anchor
+                component={Link}
+                to="/"
+                className={classes.link}
+                type="button"
+                underline={false}
+                onClick={closeDrawer} 
+              >
+                Home
+              </Anchor>
+            <Anchor
+                component={Link}
+                to="/Launches"
+                className={classes.link}
+                type="button"
+                underline={false}
+                onClick={closeDrawer} 
+              >
+                Launches
+              </Anchor>
+              <Anchor
+                component={Link}
+                to="/rockets"
+                className={classes.link}
+                type="button"
+                underline={false}
+                onClick={closeDrawer} 
+              >
+                Rockets
+              </Anchor>
+              <Anchor
+                component={Link}
+                to="/dragons"
+                className={classes.link}
+                type="button"
+                underline={false}
+              >
+                Dragon
+              </Anchor>
 
             <Divider my="sm" />
 
