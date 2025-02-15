@@ -12,6 +12,12 @@
   object-fit: contain;
 
 }
+.logofooter{
+  height: 3rem;
+  width: auto;
+  object-fit: contain;
+
+}
 .link {
   display: flex;
   align-items: center;

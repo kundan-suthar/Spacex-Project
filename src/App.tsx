@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { MantineProvider } from '@mantine/core';
+import { Footer, MantineProvider } from '@mantine/core';
 import { theme } from './theme';
 import './App.scss';
 import { HeaderMegaMenu } from './components/Header';
+import FooterPage from './components/Footer';
 
 export default function App() {
 	const { pathname } = useLocation();
@@ -21,6 +22,7 @@ export default function App() {
 			 {!hideLayout && <HeaderMegaMenu />}
 			
 			<Outlet />
+			{!hideLayout && <FooterPage />}
 		</MantineProvider>
 	);
 }
