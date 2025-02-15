@@ -8,6 +8,7 @@ import Launches from './pages/Launches/Launches';
 import {ClerkProvider} from '@clerk/clerk-react'
 import ProtectedRoute from './auth/ProtectedRoutes';
 import SignInPage from './auth/SignIn';
+import Rockets from './pages/rockets/Rockets';
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -30,6 +31,11 @@ export const routes = [
 				path: "/Launches",
 				element: <ProtectedRoute />, // Protect this route
 				children: [{ path: "/Launches", element: <Launches /> }],
+			},
+			{
+				path: "/rockets",
+				element: <ProtectedRoute />, // Protect this route
+				children: [{ path: "/rockets", element: <Rockets /> }],
 			},
 		]
 	}
