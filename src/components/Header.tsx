@@ -15,6 +15,7 @@ import {
   SignedIn,
   SignedOut,
   SignInButton,
+  SignOutButton,
   UserButton,
 } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
@@ -108,52 +109,59 @@ export function HeaderMegaMenu() {
             <Divider my="sm" />
 
             <Anchor
-                component={Link}
-                to="/"
-                className={classes.link}
-                type="button"
-                underline={false}
-                onClick={closeDrawer} 
-              >
-                Home
-              </Anchor>
+              component={Link}
+              to="/"
+              className={classes.link}
+              type="button"
+              underline={false}
+              onClick={closeDrawer}
+            >
+              Home
+            </Anchor>
             <Anchor
-                component={Link}
-                to="/Launches"
-                className={classes.link}
-                type="button"
-                underline={false}
-                onClick={closeDrawer} 
-              >
-                Launches
-              </Anchor>
-              <Anchor
-                component={Link}
-                to="/rockets"
-                className={classes.link}
-                type="button"
-                underline={false}
-                onClick={closeDrawer} 
-              >
-                Rockets
-              </Anchor>
-              <Anchor
-                component={Link}
-                to="/dragons"
-                className={classes.link}
-                type="button"
-                underline={false}
-              >
-                Dragon
-              </Anchor>
+              component={Link}
+              to="/Launches"
+              className={classes.link}
+              type="button"
+              underline={false}
+              onClick={closeDrawer}
+            >
+              Launches
+            </Anchor>
+            <Anchor
+              component={Link}
+              to="/rockets"
+              className={classes.link}
+              type="button"
+              underline={false}
+              onClick={closeDrawer}
+            >
+              Rockets
+            </Anchor>
+            <Anchor
+              component={Link}
+              to="/dragons"
+              className={classes.link}
+              type="button"
+              underline={false}
+            >
+              Dragon
+            </Anchor>
 
             <Divider my="sm" />
 
-            {/* Update "justify" to "position" */}
-            <Group position="center" grow pb="xl" px="md">
-              <Button variant="default">Log in</Button>
-              <Button>Sign up</Button>
+            
+            <Group position="left"  pb="xl" px="md">
+            <SignedOut>
+                <SignInButton>
+                  <Button variant="default">Log in</Button>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <SignOutButton />
+              </SignedIn>
             </Group>
+          
           </ScrollArea>
         </Drawer>
       </MediaQuery>
