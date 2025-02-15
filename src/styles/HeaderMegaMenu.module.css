@@ -1,7 +1,9 @@
 .header {
   height: 60px;
-  padding-left: var(--mantine-spacing-md);
-  padding-right: var(--mantine-spacing-md);
+  /* padding-left: var(--mantine-spacing-xl);
+  padding-right: var(--mantine-spacing-xl); */
+  padding-left: 3rem;
+  padding-right: 3rem;
   border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
 }
 .logo{

@@ -1,4 +1,3 @@
-
 import {
   Anchor,
   Box,
@@ -27,7 +26,7 @@ import {
   UserButton,
 } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
-import SpaceXLogo from "../../public/assets/imgs/OdysseyCorrect.svg"
+import SpaceXLogo from "../../public/assets/imgs/Group 2.svg";
 
 export function HeaderMegaMenu() {
   // Disclosure hooks for the Drawer and links
@@ -43,13 +42,21 @@ export function HeaderMegaMenu() {
           position="apart"
           style={{ height: "100%", paddingLeft: "20px", paddingRight: "20px" }}
         >
-          <img src={SpaceXLogo} alt="Logo" width="100" height="10"  className={classes.logo}/>
+          <Link to="/">
+            <img
+              src={SpaceXLogo}
+              alt="Logo"
+              width="100"
+              height="10"
+              className={classes.logo}
+            />
+          </Link>
 
           {/* Only show this Group on screens >= "sm" */}
 
           {/* Only show these buttons on screens >= "sm" */}
           <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
-            <Group>
+            <Group spacing={"lg"}>
               <Anchor
                 component={Link}
                 to="/Launches"
@@ -69,8 +76,8 @@ export function HeaderMegaMenu() {
               {/* <Button variant="default">Log in</Button>
               <Button>Sign up</Button> */}
               <SignedOut>
-                <SignInButton >
-                <Button variant="default">Log in</Button>
+                <SignInButton>
+                  <Button variant="default">Log in</Button>
                 </SignInButton>
               </SignedOut>
               <SignedIn>

@@ -38,7 +38,7 @@ export const theme: MantineThemeOverride = {
 		sm: '0.5rem',
 		md: '0.75rem',
 		lg: '1rem',
-		xl: '1.25rem'
+		xl: '3rem'
 	},
 	shadows: {
 		xs: '0.25rem',
