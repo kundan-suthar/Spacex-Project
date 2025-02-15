@@ -48,10 +48,10 @@ export const theme: MantineThemeOverride = {
 		xl: '1.25rem'
 	},
 	headings: {
-		fontFamily: 'Outfit,sans-serif;',
+		fontFamily: 'Chakra Petch,sans-serif;',
 		sizes: {
 			h1: {
-				fontSize: '2.1rem',
+				fontSize: '3rem',
 				fontWeight: 700,
 			},
 			h2: {

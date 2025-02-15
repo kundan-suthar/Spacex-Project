@@ -1,0 +1,10 @@
+.hero{
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+.starlinkSection{
+    position: relative;
+}
+.starlinkSectionImg{
+    position: absolute;
+}

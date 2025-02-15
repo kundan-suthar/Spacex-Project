@@ -56,7 +56,7 @@ console.log(data);
 
   return (
     <Container>
-      <Title order={2} ta="center" my={20}>
+      <Title order={1} ta="center" my={20}>
         SpaceX Launches
       </Title>
       <Table verticalSpacing={"lg"} striped={true} withBorder={true}>
