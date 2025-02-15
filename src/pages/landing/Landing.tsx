@@ -46,6 +46,8 @@ const Landing = () => {
                 beyond.
               </Text>
               <Button
+                component={Link}
+                to={"/Launches"}
                 styles={(theme) => ({
                   root: {
                     backgroundColor: "#ffffff",
@@ -135,6 +137,8 @@ const Landing = () => {
         </Flex> */}
       </Container>
       <Container size="xl" py="xl">
+        <MediaQuery smallerThan="sm" styles={{ flexDirection: "column" }}>
+
         <Flex direction="row" align="center" justify="space-between" gap="xl">
           <Box>
             <img
@@ -175,6 +179,7 @@ const Landing = () => {
             </Button>
           </Box>
         </Flex>
+        </MediaQuery>
       </Container>
       <RocketList />
     </main>

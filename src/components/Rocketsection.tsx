@@ -10,6 +10,7 @@ import {
   Space,
   Button,
   rem,
+  MediaQuery,
 } from "@mantine/core";
 import { Link } from "react-router-dom";
 
@@ -76,6 +77,7 @@ const RocketList = () => {
       </Flex>
       <Space h="xl" />
       <Space h="xl" />
+      <MediaQuery smallerThan="sm" styles={{ flexDirection: "column" }}>
       <Flex direction="row" align="center" justify="space-between" gap="xl">
         <Box>
           <Text>{rockets[0].description}</Text>
@@ -113,6 +115,7 @@ const RocketList = () => {
           <img src={rockets[0].flickr_images[0]} alt="" />
         </Box>
       </Flex>
+      </MediaQuery>
      
       
     </Container>
