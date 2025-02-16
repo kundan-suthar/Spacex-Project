@@ -144,6 +144,7 @@ export function HeaderMegaMenu() {
               className={classes.link}
               type="button"
               underline={false}
+              onClick={closeDrawer}
             >
               Dragon
             </Anchor>
