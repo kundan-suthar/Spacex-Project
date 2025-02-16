@@ -20,7 +20,7 @@ const RocketList = () => {
   useEffect(() => {
     fetchRockets();
   }, [fetchRockets]);
-  console.log(rockets);
+  
 
   if (isLoading) return <Loader />;
   if (error) return <Text c="red">{error}</Text>;

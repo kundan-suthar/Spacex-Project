@@ -43,7 +43,10 @@ type Launch = {
   id: string;
   name: string;
   date_utc: string;
-  rocket: string;
+  success: boolean;
+  links: {
+    webcast: string;
+  };
 };
 type Dragon = {
   id: string;
