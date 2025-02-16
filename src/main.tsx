@@ -10,6 +10,8 @@ import ProtectedRoute from './auth/ProtectedRoutes';
 import SignInPage from './auth/SignIn';
 import Rockets from './pages/rockets/Rockets';
 import SingleRocket from './pages/rockets/SingleRocket';
+import Dragon from './pages/dragon/Dragon';
+import SingleDragon from './pages/dragon/SingleDragon';
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -38,6 +40,13 @@ export const routes = [
 				element: <ProtectedRoute />, // Protect this route
 				children: [{ path: "/rockets", element: <Rockets /> },
 					{ path: "/rockets/:id", element: <SingleRocket /> },
+				],
+			},
+			{
+				path: "/dragons",
+				element: <ProtectedRoute />, // Protect this route
+				children: [{ path: "/dragons", element: <Dragon /> },
+					{ path: "/dragons/:id", element: <SingleDragon /> },
 				],
 			},
 		]

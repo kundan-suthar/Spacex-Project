@@ -4,15 +4,13 @@ import {
   Loader,
   Text,
   Title,
-  Badge,
   Button,
   Group,
   Card,
   Image,
-  Flex,
   SimpleGrid,
 } from "@mantine/core";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useAppStore } from "../../store/app.store";
 import { Link } from "react-router-dom";
 
