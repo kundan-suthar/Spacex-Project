@@ -32,7 +32,7 @@ const Launches = () => {
    const endIndex = startIndex + pageSize;
    const paginatedData = data?.slice(startIndex, endIndex);
 
-console.log(data);
+
 
   if (isLoading) return <p>Loading launches...</p>;
   if (error instanceof Error)

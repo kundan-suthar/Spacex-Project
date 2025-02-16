@@ -35,7 +35,11 @@ const SingleRocket = () => {
   };
   return (
     <Container size="lg" py="xl">
-      <Flex direction={"row"} align={Center} justify={"space-around"}>
+      <Flex direction={"row"} align={Center} justify={"space-around"} sx={(theme) => ({
+    [theme.fn.smallerThan("sm")]: {
+      flexDirection: "column",
+    },
+  })}>
         <Box sx={(theme) => ({
             paddingRight:"1rem",
            width:"400px"
@@ -46,7 +50,11 @@ const SingleRocket = () => {
           <Space h={"lg"} />
           <Flex direction="column" gap="md">
             <Box>
-            <Flex>
+            <Flex sx={(theme) => ({
+    [theme.fn.smallerThan("sm")]: {
+      flexDirection: "column",
+    },
+  })}>
               <Box>
                 <Text>Cost per launch: {singleRocket?.cost_per_launch} $</Text>
                 <Text>Company: {singleRocket?.company}</Text>
