@@ -10,7 +10,7 @@ import {
   Image,
   SimpleGrid,
 } from "@mantine/core";
-import { useEffect } from "react";
+import { ReactNode, useEffect } from "react";
 import { useAppStore } from "../../store/app.store";
 import { Link } from "react-router-dom";
 
@@ -20,33 +20,40 @@ const Rockets = () => {
   useEffect(() => {
     fetchRockets();
   }, [fetchRockets]);
-  if (isLoading) return <Loader />;
-  if (error) return <Text c="red">{error}</Text>;
-  let content = rockets?.map((rocket) => {
-    return (
-      <Card shadow="sm" padding="lg" radius="md" withBorder key={rocket.id}>
-        <Card.Section>
-          <Image
-            src={rocket.flickr_images[0]}
-            height={250}
-            alt="Norway"
-          />
-        </Card.Section>
+  let content: ReactNode;
 
-        <Group position="apart" mt="md" mb="xs">
-          <Text weight={500}>{rocket.name}</Text>
-        </Group>
-
-        <Text size="sm" color="dimmed" lineClamp={3}>
-            {rocket.description}
-        </Text>
-
-        <Button component={Link} to={`/rockets/${rocket.id}`}   fullWidth mt="md" radius="md">
-          Learn more
-        </Button>
-      </Card>
-    );
-  });
+  if (isLoading){
+    content =  <Loader />;
+  }else if (error) {
+    content = <Text c="red">{error}</Text>;
+  }else{
+    content = rockets?.map((rocket) => {
+      return (
+        <Card shadow="sm" padding="lg" radius="md" withBorder key={rocket.id}>
+          <Card.Section>
+            <Image
+              src={rocket.flickr_images[0]}
+              height={250}
+              alt="Norway"
+            />
+          </Card.Section>
+  
+          <Group position="apart" mt="md" mb="xs">
+            <Text weight={500}>{rocket.name}</Text>
+          </Group>
+  
+          <Text size="sm" color="dimmed" lineClamp={3}>
+              {rocket.description}
+          </Text>
+  
+          <Button component={Link} to={`/rockets/${rocket.id}`}   fullWidth mt="md" radius="md">
+            Learn more
+          </Button>
+        </Card>
+      );
+    });
+  }
+    
   return (
     <Container size="xl" py="xl">
       <Box
