@@ -75,6 +75,15 @@ export function HeaderMegaMenu() {
               >
                 Dragon
               </Anchor>
+              <Anchor
+                component={Link}
+                to="/starlink"
+                className={classes.link}
+                type="button"
+                underline={false}
+              >
+                StarLink
+              </Anchor>
 
               <SignedOut>
                 <SignInButton>
@@ -147,6 +156,16 @@ export function HeaderMegaMenu() {
               onClick={closeDrawer}
             >
               Dragon
+            </Anchor>
+            <Anchor
+              component={Link}
+              to="/starlink"
+              className={classes.link}
+              type="button"
+              underline={false}
+              onClick={closeDrawer}
+            >
+              StarLink
             </Anchor>
 
             <Divider my="sm" />
