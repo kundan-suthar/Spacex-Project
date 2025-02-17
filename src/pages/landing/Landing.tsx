@@ -11,7 +11,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-import Starlink from "../../../public/assets/imgs/starlink.png";
+import StarlinkImg from "../../../public/assets/imgs/starlink.png";
 import Astro from "../../../public/assets/imgs/astro3.png";
 import classes from "../../styles/Landing.module.css";
 import RocketList from "../../components/Rocketsection";
@@ -142,7 +142,7 @@ const Landing = () => {
         <Flex direction="row" align="center" justify="space-between" gap="xl">
           <Box>
             <img
-              src={Starlink}
+              src={StarlinkImg}
               alt="satelite starlink"
               width="100%"
               height="100%"
@@ -158,6 +158,8 @@ const Landing = () => {
               40 at Cape Canaveral Space Force Station, Florida.
             </Text>
             <Button
+              component={Link}
+              to={"/starlink"}
               styles={(theme) => ({
                 root: {
                   backgroundColor: "#ffffff",

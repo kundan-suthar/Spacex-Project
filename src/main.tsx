@@ -12,6 +12,7 @@ import Rockets from './pages/rockets/Rockets';
 import SingleRocket from './pages/rockets/SingleRocket';
 import Dragon from './pages/dragon/Dragon';
 import SingleDragon from './pages/dragon/SingleDragon';
+import Starlink from './pages/starlink/Starlink';
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -47,6 +48,12 @@ export const routes = [
 				element: <ProtectedRoute />, // Protect this route
 				children: [{ path: "/dragons", element: <Dragon /> },
 					{ path: "/dragons/:id", element: <SingleDragon /> },
+				],
+			},
+			{
+				path: "/starlink",
+				element: <ProtectedRoute />, // Protect this route
+				children: [{ path: "/starlink", element: <Starlink /> },
 				],
 			},
 		]

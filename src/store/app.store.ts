@@ -61,6 +61,16 @@ type Dragon = {
   heat_shield: HeatShield;
   wikipedia:string;
 };
+interface SpaceTrack {
+  OBJECT_NAME:string;
+  LAUNCH_DATE:string;
+  SITE:string;
+}
+type Starlink = {
+  id:string;
+  version:string;
+  spaceTrack:SpaceTrack;
+};
 
 type AppStore = {
   rockets: Rocket[] | null;
@@ -68,6 +78,7 @@ type AppStore = {
   dragons: Dragon[] | null;
   singleDragon: Dragon | null;
   launches: Launch[] | null;
+  starlinks: Starlink[] | null;
   isLoading: boolean;
   error: string | null;
   fetchRockets: () => Promise<void>;
@@ -75,11 +86,13 @@ type AppStore = {
   fetchLaunches: () => Promise<void>;
   fetchDragons: () => Promise<void>;
   fetchSingleDragon: (id: string) => Promise<void>;
+  fetchStarlinks:() => Promise<void>;
 };
 export const useAppStore = create<AppStore>((set) => ({
   rockets: null,
   dragons: null,
   singleDragon: null,
+  starlinks:null,
   singleRocket: null,
   launches: null,
   isLoading: false,
@@ -143,4 +156,16 @@ export const useAppStore = create<AppStore>((set) => ({
       set({ error: "Failed to fetch rockets", isLoading: false });
     }
   },
+  fetchStarlinks: async () => {
+    set({ isLoading: true, error: null });
+
+    try {
+      const response = await axios.get<Starlink[]>(
+        `https://api.spacexdata.com/v4/starlink`
+      );
+      set({ starlinks: response.data, isLoading: false });
+    } catch (error) {
+      set({ error: "Failed to fetch rockets", isLoading: false });
+    }
+  }
 }));
