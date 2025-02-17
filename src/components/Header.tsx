@@ -20,15 +20,33 @@ import {
 } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 import SpaceXLogo from "../../public/assets/imgs/Group 2.svg";
+import { useEffect, useState } from "react";
 
 export function HeaderMegaMenu() {
   // Disclosure hooks for the Drawer and links
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
+  
+    const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <Box>
-      <header className={classes.header}>
+      <header className={`${classes.header} ${isFixed ? classes.fixed : ""}`}>
         <Group
           position="apart"
           style={{ height: "100%", paddingLeft: "20px", paddingRight: "20px" }}
