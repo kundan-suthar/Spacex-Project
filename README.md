@@ -53,5 +53,5 @@ Check out the live project here: [SpaceX Project Bay](https://spacex-project-bay
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/spacex-project-bay.git
+   git clone https://github.com/kundan-sutha/Spacex-Project.git
    cd spacex-project-bay
